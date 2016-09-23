@@ -1,6 +1,18 @@
 library(httr)
 library(plyr)
 
+#' Title
+#'
+#' @param payer 
+#' @param receipt 
+#' @param start 
+#' @param end 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
 get_transactions <- function(payer, receipt = NULL, start = NULL, end = NULL) {
   
   request <- POST(url = "http://api.e-data.gov.ua:8080/api/rest/1.0/transactions", 
@@ -10,9 +22,20 @@ get_transactions <- function(payer, receipt = NULL, start = NULL, end = NULL) {
                               enddate = end),
                   encode = "json")
   
-  response <- content(request)
+  if (status_code(request) != 200) {
+    
+    return(paste("Помилка. Кода помилки: ", status_code(request)))
   
-  transactions <- response$response$transactions
-  transactions <- ldply(transactions, data.frame)
-  
+  } else {
+      
+    response <- content(request)
+    
+    transactions <- response$response$transactions
+    transactions <- ldply(transactions, data.frame)
+
+    
+    }
 }
+
+
+
