@@ -1,23 +1,11 @@
 library(httr)
 library(plyr)
 
-#' Title
-#'
-#' @param payer 
-#' @param receipt 
-#' @param start 
-#' @param end 
-#'
-#' @return
-#' @export
-#'
-#' @examples
-
-get_transactions <- function(payer, receipt = NULL, start = NULL, end = NULL) {
+get_transactions <- function(payer, recipient = NULL, start = NULL, end = NULL) {
   
   request <- POST(url = "http://api.e-data.gov.ua:8080/api/rest/1.0/transactions", 
                   body = list(payers_edrpous = payer, 
-                              receipt_edrpous = receipt,
+                              receipt_edrpous = recipient,
                               startdate = start,
                               enddate = end),
                   encode = "json")
