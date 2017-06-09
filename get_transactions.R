@@ -10,9 +10,31 @@ library(plyr)
 
 get_transactions <- function(payer = NULL, recipient = NULL, start = NULL, end = NULL) {
   
-  if( is.null(payer) && is.null(recipient) ){
-    message("Помилка. Обидва ЄДРПОУ, і платника (payer) і отримувача (recipient) - відсутні. Повинен бути хоча б один з цих кодів.")
-    return(NULL);
+  if(is.null(payer) && is.null(recipient) ) {
+    
+    message("Помилка. Обидва ЄДРПОУ, і платника (payer) і отримувача (recipient) - відсутні. 
+            Повинен бути хоча б один з цих кодів.")
+    
+    return(NULL)
+  
+    }
+  
+  if(!is.null(payer) && nchar(payer) < 8) {
+    
+    
+    message("Помилка. Код ЄДРПОУ не може містити менше восьми символів")
+    
+    return(NULL)
+    
+  }
+  
+  if(!is.null(recipient) && nchar(recipient) < 8) {
+    
+    
+    message("Помилка. Код ЄДРПОУ не може містити менше восьми символів")
+    
+    return(NULL)
+    
   }
   
   request <- POST(url = "http://api.e-data.gov.ua:8080/api/rest/1.0/transactions", 
@@ -35,6 +57,7 @@ get_transactions <- function(payer = NULL, recipient = NULL, start = NULL, end =
     transactions <- ldply(transactions, data.frame)
     
     return(transactions)  
+    
   }
   
   
