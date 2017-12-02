@@ -10,10 +10,10 @@ get_transactions(payer, recepient, start, end)
 
 ## parameters
 
-* payer - ЄДРПОУ платника  
-* recepient - ЄДРПОУ отримувача  
-* start - дата у форматі dd-mm-yyyy  
-* end - дата у форматі dd-mm-yyyy  
+* payer - ЄДРПОУ платника, string
+* recepient - ЄДРПОУ отримувача, string
+* start - дата у форматі dd-mm-yyyy або "yyyy-mm-dd"
+* end - дата у форматі dd-mm-yyyy або "yyyy-mm-dd"
 
 Обов’язкові параметри - payer або recepient, решта параметрів працює як фільтри.
 
