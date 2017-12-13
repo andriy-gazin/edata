@@ -4,7 +4,7 @@ api wrapper for public spending portal
 
 ```r
 
-get_transactions(payer, recepient, start, end)
+get_transactions(payer, recipt, start, end, region)
 
 ```
 
@@ -12,12 +12,13 @@ get_transactions(payer, recepient, start, end)
 
 * payer - ЄДРПОУ платника  
 * recepient - ЄДРПОУ отримувача  
-* start - дата у форматі dd-mm-yyyy  
-* end - дата у форматі dd-mm-yyyy  
+* start - дата у форматі yyyy-mm-dd  
+* end - дата у форматі yyyy-mm-dd
+* region - код регіону
 
-Обов’язкові параметри - payer або recepient, решта параметрів працює як фільтри.
+Обов’язкові параметри - payer або recipt, решта параметрів працює як фільтри.
 
-[Опис API Є-дата](http://www.minfin.gov.ua/uploads/redactor/files/e-data-API.pdf)
+[Опис API Є-дата](https://confluence.spending.gov.ua/pages/viewpage.action?pageId=5800614&src=contextnavpagetreemode)
 
 ## to do
 
