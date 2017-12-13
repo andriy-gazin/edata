@@ -8,7 +8,7 @@ library(jsonlite)
 # 
 #
 
-get_transactions <- function(payer, recipt = NULL, start = NULL, end = NULL, region = NULL){
+get_transactions <- function(payer = NULL, recipt = NULL, start = NULL, end = NULL, region = NULL){
   
   ###
   
@@ -63,6 +63,16 @@ get_transactions <- function(payer, recipt = NULL, start = NULL, end = NULL, reg
     
     response <- content(request, as = 'text')
     response <- fromJSON(response)
+    
+    ###
+    
+    dates <- c('doc_date', 'doc_v_date', 'trans_date')
+    response[dates] <- lapply(response[dates], as.Date)
+    
+    integers <- c('id', 'doc_number', 'region_id')
+    response[integers] <- lapply(response[integers], as.integer)
+    
+    response$amount <- as.double(response$amount)
     
   }
   
