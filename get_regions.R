@@ -7,7 +7,7 @@ get_regions <- function(){
   
   if (status_code(request) != 200) {
     
-    message(paste("Помилка HTTP запиту. Код помилки: ", status_code(request)))
+    message(paste('Помилка HTTP запиту. Код помилки: ', status_code(request)))
     return(NULL)
     
   } else {
