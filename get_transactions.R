@@ -8,7 +8,7 @@ library(jsonlite)
 # 
 #
 
-get_transactions <- function(payer = NULL, recipt = NULL, start = NULL, end = NULL, region = NULL){
+get_transactions <- function(payer = NULL, recipt = NULL, start = NULL, end = NULL, region = NULL, save = FALSE){
   
   ###
   
@@ -64,15 +64,38 @@ get_transactions <- function(payer = NULL, recipt = NULL, start = NULL, end = NU
     response <- content(request, as = 'text')
     response <- fromJSON(response)
     
+  }
+  
+  if(save == TRUE) {
+    
+    if(!dir.exists('data')) {
+      
+      dir.create('data')
+      
+    }
+    
+    if(!dir.exists('data/transactions')) {
+      
+      dir.create('data/transactions')
+      
+    }
+    
+    filename <- paste(payer, recipt, start, end, sep = '-')
+    
+    write.csv(response, file = paste0('data/transactions/', filename, '.csv'), 
+              row.names = F)
+    
+  } else {
+    
     ###
     
     dates <- c('doc_date', 'doc_v_date', 'trans_date')
     response[dates] <- lapply(response[dates], as.Date)
-
+    
     response$amount <- as.double(response$amount)
     
+    return(response)
+    
   }
-  
-  return(response)
   
 }
