@@ -1,8 +1,10 @@
 # edata
-api wrapper for public spending portal
 
+Набір функцій для роботи з API порталу публічних фінансів Є-data
 
-###get_transactions()
+---
+
+### get_transactions()
 
 ```r
 
@@ -48,7 +50,9 @@ transactions <- get_transactions(payer = '20077720,30019801')
 
 Цей запит поверне dataframe із транзакціями, в яких платником є НАК Нафтогаз України або ПАТ Укртрангаз.
 
-###get_regions()
+---
+
+### get_regions()
 
 ```r
 
@@ -58,7 +62,9 @@ regions <- get_regions()
 
 Функція, яка повертає dataframe із назвами регіонів та їх числовими кодами. Ці коди можна згодом використати у функції ```get_transactions()``` для фільтрування транзакцій. Ця функція не має параметрів.
 
-###get_organizations()
+---
+
+### get_organizations()
 
 ```r
 
@@ -72,7 +78,9 @@ API Є-data віддає перелік організацій у заархів
 
 Ця функція не має параметрів.
 
-###top_transactions()
+---
+
+### top_transactions()
 
 ```r
 
