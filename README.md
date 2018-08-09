@@ -4,11 +4,11 @@
 
 ---
 
-### get_transactions()
+### transactions()
 
 ```r
 
-get_transactions(payer, recipt, start, end, region, save)
+transactions(payer, recipt, start, end, region, save)
 
 ```
 
@@ -27,24 +27,24 @@ get_transactions(payer, recipt, start, end, region, save)
 
 ```r
 
-transactions <- get_transactions(payer = '20077720')
+transactions <- transactions(payer = '20077720')
 
 ```
 Цей запит поверне dataframe зо всіма доступними транзакціями, в яких платником виступає НАК Нафтогаз України.
 
 ```r
 
-get_transactions(payer = '20077720', save = TRUE)
+transactions(payer = '20077720', save = TRUE)
 
 ```
 
-Цей запит створить у поточній working directory теку із назвою data, а в ній теку із назвою transactions і запише туди csv файл із даними. Назва файлу буде конструюватись із параметрів запиту. В даному випадку це буде щось на зразок '20077720---.csv'. Якщо у запиті будуть інші параметри (ЄДРПОУ отримувача, дати), вони додадуться у назву файлу.
+Цей запит створить у поточній working directory csv файл із даними. Назва файлу буде конструюватись із параметрів запиту. В даному випадку це буде щось на зразок '20077720---.csv'. Якщо у запиті будуть інші параметри (ЄДРПОУ отримувача, дати), вони додадуться у назву файлу.
 
 Ви можете в одному запиті зазначати одразу кілька платників або отримувачів. 
 
 ```r
 
-transactions <- get_transactions(payer = '20077720,30019801')
+transactions <- transactions(payer = '20077720,30019801')
 
 ```
 
@@ -52,23 +52,23 @@ transactions <- get_transactions(payer = '20077720,30019801')
 
 ---
 
-### get_regions()
+### regions()
 
 ```r
 
-regions <- get_regions()
+regions <- regions()
 
 ```
 
-Функція, яка повертає dataframe із назвами регіонів та їх числовими кодами. Ці коди можна згодом використати у функції ```get_transactions()``` для фільтрування транзакцій. Ця функція не має параметрів.
+Функція, яка повертає dataframe із назвами регіонів та їх числовими кодами. Ці коди можна згодом використати у функції ```transactions()``` для фільтрування транзакцій. Ця функція не має параметрів.
 
 ---
 
-### get_organizations()
+### organizations()
 
 ```r
 
-organizations <- get_organizations()
+organizations <- organizations()
 
 ```
 

@@ -1,0 +1,12 @@
+Package: edata
+Title: Work with spending.gov.ua API
+Version: 0.0.0.9000
+Authors@R: person("Andriy", "Gazin", email = "andriy.gazin@gmail.com", role = c("aut", "cre"))
+Description: Набір функцій для роботи з API порталу публічних фінансів Є-data
+Depends: R (>= 3.4.2)
+License: GNU General Public License v3.0
+Encoding: UTF-8
+LazyData: true
+Imports: httr,
+	 jsonlite
+RoxygenNote: 6.0.1
