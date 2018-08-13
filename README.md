@@ -2,6 +2,11 @@
 
 Набір функцій для роботи з API порталу публічних фінансів Є-data
 
+
+```
+devtools::install_github('edata', 'andriy-gazin')
+```
+
 ---
 
 ### transactions()
