@@ -2,6 +2,7 @@
 
 export(contractors)
 export(countries)
+export(dkpp)
 export(get_organizations)
 export(lastload)
 export(ping_transactions)
