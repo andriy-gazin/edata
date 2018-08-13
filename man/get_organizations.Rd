@@ -2,7 +2,7 @@
 % Please edit documentation in R/organizations.R
 \name{get_organizations}
 \alias{get_organizations}
-\title{Отримайте перелік всіх розпорядників, зареєстрованих на spending.gov.ua}
+\title{Повертає перелік всіх розпорядників, зареєстрованих на spending.gov.ua}
 \usage{
 get_organizations()
 }
@@ -10,5 +10,5 @@ get_organizations()
 Датафрейм із переліком всіх розпорядників бюджетних коштів, зареєстрованих на порталі spending.gov.ua
 }
 \description{
-Отримайте перелік всіх розпорядників, зареєстрованих на spending.gov.ua
+Повертає перелік всіх розпорядників, зареєстрованих на spending.gov.ua
 }

@@ -2,6 +2,7 @@
 
 export(get_organizations)
 export(lastload)
+export(ping_transactions)
 export(regions)
 export(top_transactions)
 export(transactions)
